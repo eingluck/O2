@@ -13,16 +13,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 # The 'rm -rf /var/cache/apk/*' command cleans up the APK cache to keep the image small.
 RUN apk update && apk add sshpass openssh mosquitto-clients
 
-# Set the default command for the container
-# This is optional, but useful to keep the container running or provide a default utility.
-CMD ["/bin/sh"]
-
 # Copiar script principal
 WORKDIR /app
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]
+
 
 
 
