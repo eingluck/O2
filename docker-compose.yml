@@ -2,7 +2,7 @@ services:
   ssh-mqtt-client:
     build: .
     environment:
-      SSHPASS: "Itadakimasu1."
+      SSHPASS: "pepe"
       SSH_HOST: "10.0.0.1"
       SSH_USER: "1234"
       REMOTE_CMD: "show primary_diagnosis"
@@ -11,5 +11,6 @@ services:
       MQTT_TOPIC: "ssh/primary_diagnosis"
       INTERVAL: "300"   # cada 5 minutos
     restart: unless-stopped
+
 
 
