@@ -1,0 +1,16 @@
+FROM debian:stable-slim
+
+USER root
+
+# Instalar herramientas necesarias
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        openssh-client sshpass mosquitto-clients jq ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copiar script principal
+WORKDIR /app
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+ENTRYPOINT ["/app/entrypoint.sh"]
