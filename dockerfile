@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 #   - sshpass: Used for non-interactive password-based SSH login.
 #   - mosquitto-client: Provides the mosquitto_pub and mosquitto_sub commands for MQTT.
 # The 'rm -rf /var/cache/apk/*' command cleans up the APK cache to keep the image small.
-RUN apk update && apk add openssh-client sshpass mosquitto-client 
+RUN apk add openssh-client sshpass mosquitto-client 
 
 # Set the default command for the container
 # This is optional, but useful to keep the container running or provide a default utility.
@@ -23,5 +23,6 @@ COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]
+
 
 
